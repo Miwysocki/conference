@@ -3,7 +3,6 @@ package com.example.conference.Lecture;
 
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
