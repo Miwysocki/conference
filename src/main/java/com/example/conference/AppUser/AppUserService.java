@@ -45,4 +45,10 @@ public class AppUserService implements UserDetailsService {
         appUserRepository.save(appUser);
 }
 
+public int updateEmail(String login, String email){
+        return appUserRepository.updateEmail(login, email);
+
+}
+
+
 }
