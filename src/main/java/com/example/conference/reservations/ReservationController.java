@@ -33,4 +33,14 @@ public class ReservationController {
     public List<Lecture> getReservedLectures(@RequestParam String login){
         return reservationService.getReservedLectures(login);
     }
+
+    @GetMapping("api/generate/sheet/lectures")
+    public String lectureInterestSheet(){
+        return reservationService.lectureInterestSheet();
+    }
+
+    @GetMapping("api/generate/sheet/subjects")
+    public String subjectInterestSheet(){
+        return reservationService.subjectInterestSheet();
+    }
 }

@@ -25,6 +25,43 @@ public class ReservationService {
 
     }
 
+    public String lectureInterestSheet(){
+        List<Lecture> lectures = lectureService.getSchedule();
+        Long reservationCount = reservationRepository.count();
+        String result ="";
+
+        for (Lecture l : lectures
+             ) {
+            double percentageInterest = ((double)l.getReservations() /(double)reservationCount) * 100;
+            result += l.getName();
+            result += " - " + percentageInterest +"\n";
+        }
+        return result;
+    }
+
+    public String subjectInterestSheet(){
+        List<Lecture> lectures = lectureService.getSchedule();
+        Long reservationCount = reservationRepository.count();
+        String result ="";
+        long countSubj[] = {0,0,0};
+        double res[] = {0,0,0};
+
+        for (Lecture l : lectures
+        ) {
+            int subId = l.getSubjectId();
+            int lectureId = l.getId();
+           long cl = reservationRepository.countByLectureId(lectureId);
+            countSubj[subId] += cl;
+        }
+
+        for(int i =0; i<3 ;i++){
+            res[i] = ((double) countSubj[i] / (double) reservationCount) *100;
+            result += lectures.get(i).getSubject() + " - " + res[i] + "\n";
+        }
+
+        return result;
+    }
+
     public String makeReservation(int lectureId, AppUser user) throws FileNotFoundException {
         if (!spaceAvailable(lectureId)) throw new IllegalStateException("no space available");
         if (!timeAvailable(user.getLogin(),lectureId)) throw new IllegalStateException("you have already made reservation for this time");

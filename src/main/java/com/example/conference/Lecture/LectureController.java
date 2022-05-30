@@ -20,9 +20,4 @@ public class LectureController {
     public List<Lecture> getSchedule(){
         return lectureService.getSchedule();
     }
-
-//    @PostMapping("/reserve")
-//    public makeReservation(){
-//        lectureService.makeReservation();
-//    }
 }
