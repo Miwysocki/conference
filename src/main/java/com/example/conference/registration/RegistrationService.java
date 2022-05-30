@@ -29,7 +29,7 @@ public class RegistrationService {
                         request.getPassword()
                 )
         );
-        return "Registed succesfully";
+        return "Registered successfully";
     }
 
     public List<AppUser> listUsersEmails(){

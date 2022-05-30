@@ -17,7 +17,7 @@ import java.util.Collection;
 @EqualsAndHashCode
 @NoArgsConstructor
 @Entity
-//@JsonIgnoreProperties({"password", "username", "authorities",  "credentialsNonExpired", "accountNonExpired","enabled","accountNonLocked"})
+@JsonIgnoreProperties({"password", "username", "authorities",  "credentialsNonExpired", "accountNonExpired","enabled","accountNonLocked"})
 public class AppUser implements UserDetails {
     @Id
     @SequenceGenerator(

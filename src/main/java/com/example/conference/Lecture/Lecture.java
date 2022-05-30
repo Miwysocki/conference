@@ -15,4 +15,5 @@ public class Lecture {
     String name;
     String subject;
     LocalTime startingTime;
+    int reservations;
 }
