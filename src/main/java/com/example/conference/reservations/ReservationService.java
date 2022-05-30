@@ -36,6 +36,11 @@ public class ReservationService {
         return "reservation has been made";
     }
 
+    public String cancelReservation(Long id){
+        reservationRepository.deleteById(id);
+        return "reservation deleted";
+    }
+
     private void sendEmail(String email,int lectureId) throws FileNotFoundException {
         PrintWriter printWriter = new PrintWriter("powiadomienia.txt");
 
